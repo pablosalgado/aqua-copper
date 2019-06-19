@@ -6,5 +6,9 @@ Configuración mínima para ejecutar una aplicación Ruby on Rails usando Apache
 1. Clonar este repositorio.
 1. `cd aqua-copper`
 1. `vagrant up`
+1. `vagrant ssh`
+1. `cd /vagrant`
+1. `EDITOR=nano bin/rails credentials:edit`
+1. `sudo systemctl restart apache2`
 1. Dirigir un navegador a: http://localhost:8000
 1. Se muestra el mensaje: "Welcome#index"
