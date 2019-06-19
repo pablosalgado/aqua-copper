@@ -29,7 +29,7 @@ EOF
 systemctl restart apache2
 
 # ------------------------------------------------------------------------------
-#Install Passenger
+# Install Passenger
 # ------------------------------------------------------------------------------
 apt-get install -y libapache2-mod-passenger
 
