@@ -26,6 +26,8 @@ cat > /etc/apache2/sites-available/000-default.conf << EOF
 </VirtualHost>
 EOF
 
+systemctl restart apache2
+
 # ------------------------------------------------------------------------------
 # Install Passenger
 # ------------------------------------------------------------------------------
@@ -45,7 +47,13 @@ SCRIPT
 
 $user = <<-SCRIPT
   cd /vagrant
+
   bundle install --deployment
+
+  rm ./config/credentials.yml.enc
+  rm ./config/master.key
+  EDITOR=vim bin/rails credentials:edit
+
   RAILS_ENV=production bin/bundle exec rake assets:precompile
 SCRIPT
 
